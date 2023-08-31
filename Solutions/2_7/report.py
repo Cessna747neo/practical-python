@@ -1,4 +1,4 @@
-# report.py
+import os
 import csv
 
 def read_portfolio(filename):
@@ -36,8 +36,8 @@ def read_prices(filename):
 
     return prices
 
-portfolio = read_portfolio("C:\Program Files\Git\practical-python\Work\Data\portfolio.csv")
-prices    = read_prices("C:\Program Files\Git\practical-python\Work\Data\prices.csv")
+portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
+prices    = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
 
 # Calculate the total cost of the portfolio
 total_cost = 0.0
