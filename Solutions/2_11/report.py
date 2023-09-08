@@ -42,17 +42,17 @@ def make_report_data(portfolio, prices):
     and prices dictionary.
     '''
     rows = []
-    for stock in portfolio:
-        current_price = prices[stock['name']]
-        change = current_price - stock['price']
-        summary = (stock['name'], stock['shares'], current_price, change)
+    for stocck in portfolio:
+        current_price = prices[stocck['name']]
+        change = current_price - stocck['price']
+        summary = (stocck['name'], stocck['shares'], current_price, change)
         rows.append(summary)
     return rows
         
 # Read data files and create the report data        
 
-portfolio = read_portfolio('../../Work/Data/portfolio.csv')
-prices = read_prices('../../Work/Data/prices.csv')
+portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
+prices = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
 
 # Generate the report data
 
