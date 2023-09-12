@@ -32,8 +32,12 @@ def read_prices(filename):
                 pass
     return prices
 
-portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
-prices = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
+try:
+    portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
+    prices = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
+except:
+    portfolio = read_portfolio("C:\Program Files\Git\practical-python\Work\Data\portfolio.csv")
+    prices = read_prices("C:\Program Files\Git\practical-python\Work\Data\prices.csv") 
 
 def make_report(portfolio, prices):
 
@@ -56,6 +60,7 @@ print('%10s %10s %10s %10s' % thing)
 
 for r in report:
     print('%10s %10d %10.2f %10.2f' % r)
+
 
 
 
