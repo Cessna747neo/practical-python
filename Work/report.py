@@ -9,12 +9,12 @@ def read_portfolio(filename):
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
-
         for row in rows:
+            record = dict(zip(headers, row))
             stock = {
-                'name' : row[0],
-                'shares' : int(row[1]),
-                'price' : float(row[2])
+                 'name'   : record['name'],
+                 'shares' : int(record['shares']),
+                 'price'   : float(record['price'])
             }
             portfolio.append(stock)
 
@@ -32,12 +32,9 @@ def read_prices(filename):
                 pass
     return prices
 
-try:
-    portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
-    prices = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
-except:
-    portfolio = read_portfolio("C:\Program Files\Git\practical-python\Work\Data\portfolio.csv")
-    prices = read_prices("C:\Program Files\Git\practical-python\Work\Data\prices.csv") 
+portfolio = read_portfolio("/Users/alex/practical-python/Work/Data/portfolio.csv")
+prices = read_prices("/Users/alex/practical-python/Work/Data/prices.csv")
+
 
 def make_report(portfolio, prices):
 
@@ -60,18 +57,3 @@ print('%10s %10s %10s %10s' % thing)
 
 for r in report:
     print('%10s %10d %10.2f %10.2f' % r)
-
-
-
-
-# total_cost = 0.0
-# for s in portfolio:
-#     total_cost += s['shares']*s['price']
-# print("total cost =", total_cost)
-
-# total_value = 0.0
-# for s in portfolio:
-#     total_value += s['shares']*prices[s['name']]
-# print("total value =", total_value)
-
-# print("gain =", total_value - total_cost) 

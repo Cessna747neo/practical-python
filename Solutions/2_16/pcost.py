@@ -7,7 +7,7 @@ def portfolio_cost(filename):
     '''
     total_cost = 0.0
 
-    with open(filename) as f:
+    with open(filename, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
         for rowno, row in enumerate(rows, start=1):
@@ -28,5 +28,5 @@ if len(sys.argv) == 2:
 else:
     filename = input('Enter a filename:')
 
-cost = portfolio_cost(filename)
+cost = portfolio_cost("/Users/alex/practical-python/Work/Data/missing.csv")
 print('Total cost:', cost)
